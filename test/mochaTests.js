@@ -22,7 +22,7 @@ describe(`Standalone mocha test with invalid css in before hook, fails gracefull
     await initialise();
     await browser
       .url('http://webdriver.io/')
-      .waitForVisible('h1.header123', 5000);
+      .waitForVisible('h1.header123', 5000); // introducing an error using invalid css selector
     });
 
   it(`Should display header`, async function () {
@@ -71,7 +71,7 @@ describe(`Standalone mocha test with invalid css in "it" - fails gracefully:`, f
 
   it(`Should display header`, async function () {
     let title = await browser
-      .getText('h1.header1');
+      .getText('h1.header1'); // introducing an error using invalid css selector
 
     assert.strictEqual(title, 'WEBDRIVERI/O');
   });
